@@ -1,0 +1,422 @@
+﻿<Window x:Class="TBQuestGame.PresentationLayer.GameSessionView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TBQuestGame.PresentationLayer"
+        mc:Ignorable="d"
+        Title="WebTree Productions" Height="600" Width="1000"
+        WindowStartupLocation="CenterScreen"
+        Background="Sienna">
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+
+        <!--#region INTERACTIVE AREA STYLE-->
+        
+        <Style x:Key="InteractionButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="AntiqueWhite"/>
+            <Setter Property="Width" Value="85"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="FontSize" Value="13"/>
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid 
+                            Width="{TemplateBinding Width}" 
+                            Height="{TemplateBinding Height}" 
+                            ClipToBounds="True">
+                            <Rectangle 
+                                HorizontalAlignment="Stretch" 
+                                VerticalAlignment="Stretch" 
+                                Fill="{TemplateBinding Background}" 
+                                RadiusX="5" 
+                                RadiusY="5" />
+                            <!-- Present Content (text) of the button. -->
+                            <DockPanel >
+                                <ContentPresenter
+                                    Margin="4" 
+                                    HorizontalAlignment="Center"
+                                    Content="{TemplateBinding  Content}" 
+                                    TextBlock.Foreground="Black" />
+                            </DockPanel>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+
+        </Style>
+        
+        
+        <!--#endregion-->
+
+        <!--#region MAP AREA STYLE-->
+        
+        <Style x:Key="MapPanelButtonStyle" TargetType="Button">
+            <Setter Property="Width" Value="70"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Margin" Value="2"/>
+            <Setter Property="Background" Value="Black"/>
+            <Setter Property="Foreground" Value="AntiqueWhite"/>
+            <Setter Property="FontSize" Value="8pt"/>
+
+        </Style>
+        
+        <!--#endregion-->
+        
+        <!--#region PLAYER STATUS AREA STYLE-->
+        
+        <Style x:Key="PlayerStatusTextBlockStyle" TargetType="TextBlock">
+            <Setter Property="Width" Value="100"/>
+            <Setter Property="Background" Value="AntiqueWhite"/>
+            <Setter Property="Margin" Value="2"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+        <Style x:Key="PlayerStatusLabelStyle" TargetType="Label">
+            <Setter Property="Width" Value="60"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+        <Style x:Key="PlayerStatusButtonStyle" TargetType="Button" >
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="Background" Value="AntiqueWhite"/>
+            <Setter Property="Width" Value="85"/>
+            <Setter Property="FontSize" Value="10"/>
+            <Setter Property="Margin" Value="0,5,8,0"/>
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid 
+                            Width="{TemplateBinding Width}" 
+                            Height="{TemplateBinding Height}" 
+                            ClipToBounds="True">
+                            <Rectangle 
+                                HorizontalAlignment="Stretch" 
+                                VerticalAlignment="Stretch" 
+                                Fill="{TemplateBinding Background}" 
+                                RadiusX="5" 
+                                RadiusY="5" />
+                            <!-- Present Content (text) of the button. -->
+                            <DockPanel >
+                                <ContentPresenter
+                                    Margin="4" 
+                                    HorizontalAlignment="Center"
+                                    Content="{TemplateBinding  Content}" 
+                                    TextBlock.Foreground="Black" />
+                            </DockPanel>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background">
+                        <Setter.Value>
+                            <SolidColorBrush Color="Crimson"/>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        
+        <!--#endregion-->
+        
+    </Window.Resources>
+
+    <Grid>
+        <Grid
+            Margin="5">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="4*"/>
+                    <RowDefinition Height="10*"/>
+                </Grid.RowDefinitions>
+                <Label
+                    Content="The Abysmal"
+                    FontSize="25"
+                    Foreground="Black"
+                    FontFamily="Tahoma"
+                    HorizontalAlignment="Center"/>
+                <Grid
+                    Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel
+                        Background="BurlyWood"
+                        Margin="5"
+                        Grid.Column="0"
+                        Orientation="Horizontal">
+                        <StackPanel
+                            Orientation="Vertical"
+                            Width="450">
+                            <Label Content="Active Quest"
+                                   Foreground="Black"/>
+                        <Border Background="AntiqueWhite" CornerRadius="5" Margin="5">
+                            <TextBlock
+                                Margin="1"
+                                Width="425"
+                                Height="30"
+                                Background="AntiqueWhite"/>
+                        </Border>
+                            <Label Content="Other Quests (select a quest to change)"
+                                   Foreground="black"/>
+                        <Border Background="AntiqueWhite" CornerRadius="5" Margin="5">
+                            <ListBox
+                                Margin="1"
+                                Width="425"
+                                Height="30"
+                                BorderBrush="AntiqueWhite"
+                                Background="AntiqueWhite"/>
+                        </Border>
+                    </StackPanel>
+                        <StackPanel
+                            Orientation="Vertical"
+                            Width="140"
+                            VerticalAlignment="Center">
+                            <Button
+                                Content="Change Quest"
+                                Width="100"
+                                Height="50"                               
+                                Style="{DynamicResource InteractionButtonStyle}"/>
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel
+                        Margin="5"
+                        Background="BurlyWood"
+                        Grid.Column="1">
+                        <Label
+                            Content="Game Map"
+                            Foreground="Black"
+                            HorizontalAlignment="Center"/>
+                        <Label
+                            Content="Available Locations"
+                            Foreground="Black"
+                            HorizontalAlignment="Center"/>
+                        <StackPanel
+                            Orientation="Horizontal">
+                            <Button
+                                Tag="100"
+                                Visibility="{Binding IsVillageVisible, Converter={StaticResource BooleanToVisibilityConverter}, Mode=TwoWay}"
+                                Click="MapButton_Click"
+                                Content="Village"
+                                Style="{StaticResource MapPanelButtonStyle}"/>
+                            <Button
+                                Tag="101"
+                                Visibility="{Binding IsMountainVisible, Converter={StaticResource BooleanToVisibilityConverter}, Mode=TwoWay}"
+                                Click="MapButton_Click"
+                                Content="Mountains"
+                                Style="{StaticResource MapPanelButtonStyle}"/>
+                            <Button
+                                Tag="102"
+                                Visibility="{Binding IsForestVisible, Converter={StaticResource BooleanToVisibilityConverter}, Mode=TwoWay}"
+                                Click="MapButton_Click"
+                                Content="Forest"
+                                Style="{StaticResource MapPanelButtonStyle}" />
+
+                            <Button
+                                Tag="103"
+                                Visibility="{Binding IsSwampVisible, Converter={StaticResource BooleanToVisibilityConverter}, Mode=TwoWay}"
+                                Click="MapButton_Click"
+                                Content="Swamp"
+                                Style="{StaticResource MapPanelButtonStyle}"/>
+                            <Button
+                                Tag="104"
+                                Visibility="{Binding IsHarborVisible, Converter={StaticResource BooleanToVisibilityConverter}, Mode=TwoWay}"
+                                Click="MapButton_Click"
+                                Content="Harbor"
+                                Style="{StaticResource MapPanelButtonStyle}"/>
+
+                        </StackPanel>
+                        <StackPanel
+                            Height="50"
+                            Orientation="Horizontal">
+                            <Button
+                                Tag="202"
+                                Click="MapButton_Click"
+                                Visibility="{Binding IsElfHoldVisible, Converter={StaticResource BooleanToVisibilityConverter}, Mode=TwoWay}"
+                                Content="Elf Hold"
+                                Style="{StaticResource MapPanelButtonStyle}"/>
+                            <Button
+                                Tag="201"
+                                Visibility="{Binding IsCaveVisible, Converter={StaticResource BooleanToVisibilityConverter}, Mode=TwoWay}"
+                                Click="MapButton_Click"
+                                Content="Cave"
+                                Style="{StaticResource MapPanelButtonStyle}"/>
+                            <Button
+                                Tag="203"
+                                Visibility="{Binding IsWitchesCampVisible, Converter={StaticResource BooleanToVisibilityConverter}, Mode=TwoWay}"
+                                Click="MapButton_Click"
+                                Content="Witches Camp"
+                                Style="{StaticResource MapPanelButtonStyle}"/>
+                            <Button
+                                Tag="204"
+                                Visibility="{Binding IsIslandOfLostSoulsVisible, Converter={StaticResource BooleanToVisibilityConverter}, Mode=TwoWay}"
+                                Click="MapButton_Click"
+                                Content="Island"
+                                Style="{StaticResource MapPanelButtonStyle}"/>
+                            <Button
+                                Tag="105"
+                                Visibility="{Binding IsAbyssVisible, Converter={StaticResource BooleanToVisibilityConverter}, Mode=TwoWay}"
+                                Click="MapButton_Click"
+                                Content="Abyss"
+                                Style="{StaticResource MapPanelButtonStyle}"/>
+                            <Button
+                                Tag="300"
+                                Visibility="{Binding IsHomeVisible, Converter={StaticResource BooleanToVisibilityConverter}, Mode=TwoWay}"
+                                Click="MapButton_Click"
+                                Content="Home"
+                                Style="{StaticResource MapPanelButtonStyle}"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Grid>
+                <Grid
+                    Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid
+                        Background="BurlyWood"
+                        Margin="5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="4*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <StackPanel
+                            Grid.Column="0">
+                            <Label
+                                Margin="10"
+                                Height="50"
+                                Content="{Binding CurrentLocation.Description, Mode=OneWay}"
+                                Foreground="Black"
+                                HorizontalAlignment="Left"/>
+                        <Border Background="AntiqueWhite" CornerRadius="15" Margin="5">
+                            <TextBlock
+                                Text="{Binding GameMessage, Mode=OneWay}"
+                                Margin="5"
+                                Padding="10"
+                                Background="AntiqueWhite"
+                                Height="200"
+                                Width="500"
+                                HorizontalAlignment="Center"
+                                TextWrapping="Wrap"/>
+                        </Border>
+                    </StackPanel>
+                            
+                        <StackPanel
+                            Margin="10"
+                            Grid.Column="1">
+                            <Button
+                                Content="Next"
+                                Style="{StaticResource InteractionButtonStyle}"/>
+                            <Button
+                                Content="Accept"
+                                Style="{StaticResource InteractionButtonStyle}"/>
+                            <Button
+                                Content="Battle"
+                                Style="{StaticResource InteractionButtonStyle}"/>
+                            <Button
+                                Content="Trade"
+                                Style="{StaticResource InteractionButtonStyle}"/>
+                            <Button
+                                Content="Escape"
+                                Style="{StaticResource InteractionButtonStyle}"/>
+                            <Button
+                                Content="Spell"
+                                Style="{StaticResource InteractionButtonStyle}"/>
+                        </StackPanel>
+                    </Grid>
+                    <Grid
+                        Grid.Column="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="2*"/>
+                            <RowDefinition Height="1.5*"/>
+                        </Grid.RowDefinitions>
+                        <StackPanel
+                            Margin="5"
+                            Background="BurlyWood">
+                        </StackPanel>
+                        <StackPanel
+                            Margin="5"
+                            Grid.Row="1"
+                            Background="DarkGoldenrod">
+                            <Label
+                                FontWeight="Bold"
+                                FontSize="15"
+                                Content="Player Status"
+                                Foreground="Crimson"
+                                Height="30"/>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*"/>
+                                    <ColumnDefinition Width="1*"/>
+                                </Grid.ColumnDefinitions>
+                                <StackPanel
+                                    Orientation="Vertical">
+                                    <StackPanel
+                                        Orientation="Horizontal">
+                                        <Label
+                                            Content="Name"
+                                            Style="{StaticResource PlayerStatusLabelStyle}"/>
+                                        <TextBlock
+                                            Style="{StaticResource PlayerStatusTextBlockStyle}"
+                                            Text="{Binding Player.Name}"/>
+                                    </StackPanel>
+                                    <StackPanel
+                                        Orientation="Horizontal">
+                                        <Label
+                                            Content="Lives"
+                                            Style="{StaticResource PlayerStatusLabelStyle}"/>
+                                        <TextBlock
+                                            Style="{StaticResource PlayerStatusTextBlockStyle}"
+                                            Text="{Binding Player.Lives}"/>
+                                    </StackPanel>
+                                    <StackPanel
+                                        Orientation="Horizontal">
+                                        <Label
+                                            Content="BattleXP"
+                                            Style="{StaticResource PlayerStatusLabelStyle}"/>
+                                        <TextBlock
+                                            Style="{StaticResource PlayerStatusTextBlockStyle}"
+                                            Text="{Binding Player.BattleXP}"/>
+                                    </StackPanel>
+                                    <StackPanel
+                                        Orientation="Horizontal">
+                                        <Label
+                                            Content="Health"
+                                            Style="{StaticResource PlayerStatusLabelStyle}"/>
+                                        <TextBlock
+                                            Style="{StaticResource PlayerStatusTextBlockStyle}"
+                                            Text="{Binding Player.Health}"/>
+                                    </StackPanel>
+                                </StackPanel>
+                                <StackPanel
+                                    Grid.Column="1">
+                                    <Button
+                                        Content="Save"
+                                        Style="{StaticResource PlayerStatusButtonStyle}"/>
+                                    <Button
+                                        Content="Quit and Save"
+                                        Style="{StaticResource PlayerStatusButtonStyle}"/>
+                                    <Button
+                                        Content="New Game"
+                                        Style="{StaticResource PlayerStatusButtonStyle}"/>
+                                    <Button
+                                        x:Name="ExitButton"
+                                        Click="ExitButton_Click"
+                                        Content="Exit"
+                                        Style="{StaticResource PlayerStatusButtonStyle}"/>
+                                </StackPanel>
+                            </Grid> 
+                        </StackPanel>
+                        
+                    </Grid>
+                </Grid>
+            </Grid>
+
+    </Grid>
+</Window>

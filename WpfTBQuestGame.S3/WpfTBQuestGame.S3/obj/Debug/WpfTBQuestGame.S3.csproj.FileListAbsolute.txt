@@ -1,0 +1,17 @@
+C:\Users\John\Desktop\CIT195 Application Dev\TBQuest\WpfTBQuestGame.S3\WpfTBQuestGame.S3\bin\Debug\TBQuestGame.exe.config
+C:\Users\John\Desktop\CIT195 Application Dev\TBQuest\WpfTBQuestGame.S3\WpfTBQuestGame.S3\bin\Debug\TBQuestGame.exe
+C:\Users\John\Desktop\CIT195 Application Dev\TBQuest\WpfTBQuestGame.S3\WpfTBQuestGame.S3\bin\Debug\TBQuestGame.pdb
+C:\Users\John\Desktop\CIT195 Application Dev\TBQuest\WpfTBQuestGame.S3\WpfTBQuestGame.S3\obj\Debug\WpfTBQuestGame.S3.csprojAssemblyReference.cache
+C:\Users\John\Desktop\CIT195 Application Dev\TBQuest\WpfTBQuestGame.S3\WpfTBQuestGame.S3\obj\Debug\PresentationLayer\GameSessionView.g.cs
+C:\Users\John\Desktop\CIT195 Application Dev\TBQuest\WpfTBQuestGame.S3\WpfTBQuestGame.S3\obj\Debug\PresentationLayer\PlayerEntryAndSetupView.g.cs
+C:\Users\John\Desktop\CIT195 Application Dev\TBQuest\WpfTBQuestGame.S3\WpfTBQuestGame.S3\obj\Debug\App.g.cs
+C:\Users\John\Desktop\CIT195 Application Dev\TBQuest\WpfTBQuestGame.S3\WpfTBQuestGame.S3\obj\Debug\TBQuestGame_MarkupCompile.cache
+C:\Users\John\Desktop\CIT195 Application Dev\TBQuest\WpfTBQuestGame.S3\WpfTBQuestGame.S3\obj\Debug\TBQuestGame_MarkupCompile.lref
+C:\Users\John\Desktop\CIT195 Application Dev\TBQuest\WpfTBQuestGame.S3\WpfTBQuestGame.S3\obj\Debug\PresentationLayer\GameSessionView.baml
+C:\Users\John\Desktop\CIT195 Application Dev\TBQuest\WpfTBQuestGame.S3\WpfTBQuestGame.S3\obj\Debug\PresentationLayer\PlayerEntryAndSetupView.baml
+C:\Users\John\Desktop\CIT195 Application Dev\TBQuest\WpfTBQuestGame.S3\WpfTBQuestGame.S3\obj\Debug\TBQuestGame.g.resources
+C:\Users\John\Desktop\CIT195 Application Dev\TBQuest\WpfTBQuestGame.S3\WpfTBQuestGame.S3\obj\Debug\TBQuestGame.Properties.Resources.resources
+C:\Users\John\Desktop\CIT195 Application Dev\TBQuest\WpfTBQuestGame.S3\WpfTBQuestGame.S3\obj\Debug\WpfTBQuestGame.S3.csproj.GenerateResource.cache
+C:\Users\John\Desktop\CIT195 Application Dev\TBQuest\WpfTBQuestGame.S3\WpfTBQuestGame.S3\obj\Debug\WpfTBQuestGame.S3.csproj.CoreCompileInputs.cache
+C:\Users\John\Desktop\CIT195 Application Dev\TBQuest\WpfTBQuestGame.S3\WpfTBQuestGame.S3\obj\Debug\TBQuestGame.exe
+C:\Users\John\Desktop\CIT195 Application Dev\TBQuest\WpfTBQuestGame.S3\WpfTBQuestGame.S3\obj\Debug\TBQuestGame.pdb
